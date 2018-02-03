@@ -1,0 +1,20 @@
+{
+  "name": "Share market analysis",
+  "version": "1.1",
+  "description": "A browser action with a popup dump of all bookmarks, including search, add, edit and delete.",
+  "permissions": [
+    "bookmarks"
+  ],
+  "browser_action": {
+      "default_title": "Share market analysis",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": ["https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol=*"],
+      "js": ["jquery.js", "content.js"]
+    }
+  ]
+}

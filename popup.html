@@ -1,0 +1,40 @@
+<html>
+<head>
+  <script src="angular.js"></script>
+  <script src="popup.js"></script>
+  <style type="text/css">
+  	body{width:800px;}
+  	.camarilla_scanner{width:100%;height:350px;position: relative;}
+  	h3,h2{text-align: center;}
+  	.line{width:70%;height:1px;background: #000;position: absolute;left:12%;}
+  	.r3{background: #e50617;}
+  	.r2{background: #e83c49;}
+  	.r1{background: #e8747d;}
+  	.pp{width: 100%;left: 0;}
+  	.s1{background: #bef291;}
+  	.s2{background: #639b33;}
+  	.s3{background: #2b5904;}
+  	.chart_label{position: absolute;left: 5%;background: none;}
+  	.chart_points{position: absolute;right: 8%;background: none;}
+  	.chart_points.pp{right: 0;margin: auto;width: 20%;text-align: center;background: #fff;}
+	.open{height: 2px;bottom: 160px;background: #000;transform: rotate(-31deg);transform-origin: top left;
+	    position: absolute;width: 78px;left: 20%;}
+	.middle {height: 2px;bottom: 200px;background: #000;transform: rotate(65deg);transform-origin: top left;
+	    position: absolute;width: 170px;left: 36.2%;}
+	.end{height: 2px;bottom: 200px;background: #000;transform: rotate(65deg);transform-origin: top left;
+	    position: absolute;width: 170px;left: 53%;}
+	.active_points{position: absolute;width: 7px;height: 7px;border-radius: 50%;background: #000;}
+	.active_points.p1{left: 20%;}
+	.active_points.p2{left: 36%;}
+	.active_points.p3{left: 52%;}
+	.active_points.p4{left: 68%;}
+	.refresh_icon{top: 10px;right: 10px;position: absolute;cursor: pointer;}
+  </style>
+</head>
+<body ng-app="share" ng-controller="ShareController" style="width: 400px">
+  <h2>{{share.name}}({{share.symbol}})</h2><img class="refresh_icon" src="refresh.png" ng-click="sendMessage();">
+  <div ng-repeat="res in share.results" ng-if="$index != share.results.length -1">
+  	<div class="camarillachart" current="{{share.results[$index]}}" width="400" height="350" previous="{{share.results[$index+1]}}"></div>
+  </div>
+</body>
+</html>
