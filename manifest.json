@@ -13,8 +13,9 @@
   "manifest_version": 2,
   "content_scripts": [
     {
-      "matches": ["https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol=*"],
-      "js": ["jquery.js", "content.js"]
+      "matches": ["https://www.nseindia.com/*"],
+      "js": ["jquery.js", "angular.js", "content.js"],
+	  "css": ["style.css"]
     }
   ]
 }
